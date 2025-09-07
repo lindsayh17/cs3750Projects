@@ -27,7 +27,6 @@ for i in start...end{
 print("\(nums)")
 print("Done.")
 
-// exercise 2
 let height = 8
 
 var innerSpaces = height - 4
@@ -50,9 +49,30 @@ for j in 0..<height{
     }else{
         line += "|"
         
+        outerSpaces = (height - 2)/2 - j
                 
         var inner = height - 4 - 2*outerSpaces
         
+        for _ in 0..<outerSpaces{
+            line += " "
+        }
+        
+        line += "+"
+        
+        if inner > 0{
+            for _ in 0..<inner{
+                line += " "
+            }
+            line += "+"
+        }
+        
+        for _ in 0..<outerSpaces{
+            line += " "
+        }
+        
+        
+        
+        /*
         if inner >= 0{
             for k in 0..<outerSpaces{
                 line += " "
@@ -97,6 +117,7 @@ for j in 0..<height{
             }
             outerSpaces -= 1
         }
+         */
         
         line += "|"
 
@@ -106,7 +127,6 @@ for j in 0..<height{
     line += "\n"
 }
 print(line)
-
 
 // exercise 3
 let limit = 100
