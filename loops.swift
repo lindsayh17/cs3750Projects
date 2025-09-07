@@ -49,7 +49,7 @@ for j in 0..<height{
     }else{
         line += "|"
         
-        outerSpaces = (height - 2)/2 - j
+        outerSpaces = abs((height - 2)/2 - j)
                 
         var inner = height - 4 - 2*outerSpaces
         
