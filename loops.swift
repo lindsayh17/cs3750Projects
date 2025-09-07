@@ -1,6 +1,13 @@
+*
+ Lindsay Hall
+ cs3750
+ Swift assignment 1
+ */
+
+// exercise 1
 let start = 1
 let end = 50
-var nums = ""
+var nums = "" // prints the numbers
 
 print("THREE/FIVE from \(start) to \(end)")
 
@@ -27,106 +34,84 @@ for i in start...end{
 print("\(nums)")
 print("Done.")
 
-let height = 8
 
-var innerSpaces = height - 4
-var outerSpaces = 0
-var line = "\n"
+// exercise 2
+let height = 9
 
-for j in 0..<height{
+//initialize number of outer spaces
+var outerSpaces = -1
+
+for row in 0..<height{
     // initialize line to be printed in this iteration
-    //var line = ""
+    var line = ""
     
     // first and last lines
-    if j == 0 || j == height-1{
-        for i in 0..<height{
-            if i == 0 || i == height-1{
+    if row == 0 || row == height-1{
+        for col in 0..<height{
+            if col == 0 || col == height-1{
                 line += "+"
             }else{
                 line += "-"
             }
         }
-    }else{
+    }else{ // create rows with x's
         line += "|"
         
-        outerSpaces = abs((height - 2)/2 - (height - j))
-                
-        var inner = height - 4 - 2*outerSpaces
-        
-        for _ in 0..<outerSpaces{
-            line += " "
+        // upper xs
+        if row < height/2{
+            outerSpaces += 1
+            
+            for _ in 0..<outerSpaces{
+                line += " "
+            }
+            line += "+"
+            // draw inner spaces
+            for _ in 0..<(height - 4 - (2*outerSpaces)){
+                line += " "
+            }
+            line += "+"
+            for _ in 0..<outerSpaces{
+                line += " "
+            }
+            
         }
-        
-        line += "+"
-        
-        if inner > 0{
-            for _ in 0..<inner{
+        // center x for odd heights
+        else if height % 2 != 0 && row == height/2{
+            outerSpaces += 1
+            for _ in 0..<outerSpaces{
                 line += " "
             }
             line += "+"
-        }
-        
-        for _ in 0..<outerSpaces{
-            line += " "
-        }
-        
-        
-        
-        /*
-        if inner >= 0{
-            for k in 0..<outerSpaces{
-                line += " "
-            }
-            
-            line += "+"
-
-            for k in 0..<inner{
-                line += " "
-            }
-            
-            line += "+"
-            
-            for k in 0..<outerSpaces{
-                line += " "
-            }
-            
-            outerSpaces -= 1
-        } else if inner == -1{
-            for k in 0..<outerSpaces{
-                line += " "
-            }
-            line += "+"
-            for k in 0..<outerSpaces{
-                line += " "
-            }
-        }else{
-            for k in 0..<outerSpaces{
-                line += " "
-            }
-            
-            line += "+"
-
-            for k in 0..<inner{
-                line += " "
-            }
-            
-            line += "+"
-            
-            for k in 0..<outerSpaces{
+            for _ in 0..<outerSpaces{
                 line += " "
             }
             outerSpaces -= 1
         }
-         */
+        // lower xs
+        else if row > (height/2 - 1){
+            for _ in 0..<outerSpaces{
+                line += " "
+            }
+            line += "+"
+            for _ in 0..<(height - 4 - (2*outerSpaces)){
+                line += " "
+            }
+            line += "+"
+            for _ in 0..<outerSpaces{
+                line += " "
+            }
+            
+            outerSpaces -= 1
+        }
         
+        // close row
         line += "|"
 
     }
     
-    //print("\(line)")
-    line += "\n"
+    print("\(line)")
+
 }
-print(line)
 
 
 // exercise 3
@@ -136,12 +121,14 @@ var prime: Bool
 var primes = ""
 
 for i in 2...limit{
+    // check for even numbers
     if i % 2 == 0 && i != 2{
         prime = false
     }else{
         prime = true
     }
     
+    // ensure number not divisble by anything other than itself
     for j in 2..<i where prime{
         if i % j == 0{
             prime = false
@@ -153,5 +140,3 @@ for i in 2...limit{
     }
     
 }
-
-
