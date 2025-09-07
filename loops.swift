@@ -50,27 +50,56 @@ for j in 0..<height{
     }else{
         line += "|"
         
-        for k in 0..<outerSpaces{
-            line += " "
-        }
-        line += "+"
-        
+                
         var inner = height - 4 - 2*outerSpaces
         
         if inner >= 0{
+            for k in 0..<outerSpaces{
+                line += " "
+            }
+            
+            line += "+"
+
             for k in 0..<inner{
                 line += " "
             }
-        }
-        line += "+"
-        
-        for k in 0..<outerSpaces{
-            line += " "
+            
+            line += "+"
+            
+            for k in 0..<outerSpaces{
+                line += " "
+            }
+            
+            outerSpaces -= 1
+        } else if inner == -1{
+            for k in 0..<outerSpaces{
+                line += " "
+            }
+            line += "+"
+            for k in 0..<outerSpaces{
+                line += " "
+            }
+        }else{
+            for k in 0..<outerSpaces{
+                line += " "
+            }
+            
+            line += "+"
+
+            for k in 0..<inner{
+                line += " "
+            }
+            
+            line += "+"
+            
+            for k in 0..<outerSpaces{
+                line += " "
+            }
+            outerSpaces -= 1
         }
         
         line += "|"
-        
-        outerSpaces += 1
+
     }
     
     //print("\(line)")
@@ -103,3 +132,5 @@ for i in 2...limit{
     }
     
 }
+
+
