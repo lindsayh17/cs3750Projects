@@ -49,7 +49,7 @@ for j in 0..<height{
     }else{
         line += "|"
         
-        outerSpaces = abs((height - 2)/2 - j)
+        outerSpaces = abs((height - 2)/2 - (height - j))
                 
         var inner = height - 4 - 2*outerSpaces
         
@@ -127,6 +127,7 @@ for j in 0..<height{
     line += "\n"
 }
 print(line)
+
 
 // exercise 3
 let limit = 100
